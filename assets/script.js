@@ -167,6 +167,40 @@
         });
       }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
       revealTargets.forEach(function(el){ revealIO.observe(el); });
+
+      // Safety net: an instant jump (keyboard End, dragging the scrollbar
+      // thumb, an in-page link to the footer) can land the page past an
+      // element without the browser ever rendering a frame where it crossed
+      // the viewport, so IntersectionObserver never fires for it and it would
+      // otherwise stay invisible forever. Sweep on scroll/resize and reveal
+      // anything already at or above the fold.
+      var pendingReveal = Array.prototype.slice.call(revealTargets);
+      var sweepTicking = false;
+      function sweepReveal(){
+        sweepTicking = false;
+        pendingReveal = pendingReveal.filter(function(el){
+          if(el.classList.contains('revealed')){ return false; }
+          var r = el.getBoundingClientRect();
+          if(r.top < window.innerHeight){
+            el.classList.add('revealed');
+            revealIO.unobserve(el);
+            return false;
+          }
+          return true;
+        });
+        if(!pendingReveal.length){
+          window.removeEventListener('scroll', requestSweep);
+          window.removeEventListener('resize', requestSweep);
+        }
+      }
+      function requestSweep(){
+        if(!pendingReveal.length || sweepTicking) return;
+        sweepTicking = true;
+        requestAnimationFrame(sweepReveal);
+      }
+      window.addEventListener('scroll', requestSweep, { passive: true });
+      window.addEventListener('resize', requestSweep);
+      requestSweep();
     } else {
       revealTargets.forEach(function(el){ el.classList.add('revealed'); });
     }
