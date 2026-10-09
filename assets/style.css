@@ -207,7 +207,7 @@
   .hero h1 em{font-style:italic;color:var(--lacquer);}
   .hero-sub{margin-top:1.2rem;max-width:46ch;color:var(--ink-soft);font-size:1.08rem;}
   .hero-actions{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap;}
-  .hero-visual{display:flex;justify-content:center;padding:2rem;}
+  .hero-visual{display:flex;justify-content:center;}
   @media (max-width:940px){.hero{grid-template-columns:1fr;}.hero-visual{order:-1;padding-top:0;}}
 
   /* ---------- Hero entrance ---------- */
@@ -339,7 +339,7 @@
   /* ---------- Photo frames ---------- */
   .frame{border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);}
   .frame img{width:100%;height:100%;object-fit:cover;}
-  .hero-photo{aspect-ratio:6/5;}
+  .hero-photo{aspect-ratio:6/5;width:100%;}
   .service-photo{aspect-ratio:4/3;margin-bottom:1.1rem;}
   .service-photo img{transition:transform .35s ease;}
   .card:hover .service-photo img{transform:scale(1.045);}
