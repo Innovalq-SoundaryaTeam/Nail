@@ -91,12 +91,13 @@
     transition:box-shadow .3s ease;
   }
   .nav.scrolled{box-shadow:0 14px 32px -22px rgba(0,0,0,.4);}
-  .nav-row{display:flex;align-items:center;gap:1rem;padding-block:1rem;}
-  .brand{display:flex;align-items:center;gap:.55rem;font-family:var(--font-display);font-size:1.3rem;font-weight:700;letter-spacing:.01em;margin-inline-end:auto;}
+  .nav-row{display:flex;align-items:center;gap:1rem;padding-block:1rem;min-height:40px;}
+  .brand{display:flex;align-items:center;gap:.55rem;font-family:var(--font-display);font-size:1.3rem;line-height:1;font-weight:700;letter-spacing:.01em;margin-inline-end:auto;}
   .brand em{font-style:italic;color:var(--lacquer);}
   .brand-mark{width:24px;height:24px;flex:none;color:var(--lacquer);}
   .nav-links{display:flex;align-items:center;gap:clamp(1rem,2vw,2rem);}
   .nav-links a{
+    display:inline-flex;align-items:center;line-height:1;
     font-size:.92rem;font-weight:500;color:var(--ink-soft);padding:.35rem 0;position:relative;white-space:nowrap;
   }
   .nav-links a::after{
@@ -115,13 +116,13 @@
   .cta:active{transform:translateY(0) scale(.97);}
   .cta.ghost{background:transparent;color:var(--lacquer);}
   .cta.ghost:hover{background:var(--lacquer);color:#fff;}
-  .nav-links a.cta{color:#fff;padding:.8rem 1.25rem;font-size:.85rem;font-weight:600;}
+  .nav-links a.cta{color:#fff;height:40px;padding:0 1.25rem;font-size:.85rem;font-weight:600;line-height:1;box-sizing:border-box;}
   .nav-links a.cta:hover{color:#fff;}
   /* ---------- Theme + direction controls ---------- */
   .nav-controls{display:flex;align-items:center;gap:.5rem;}
   .icon-btn{
     display:flex;align-items:center;justify-content:center;flex:none;
-    width:38px;height:38px;border-radius:50%;border:1px solid var(--line);
+    width:40px;height:40px;border-radius:50%;border:1px solid var(--line);
     background:transparent;color:var(--ink);cursor:pointer;
     transition:background .18s ease,border-color .18s ease,color .18s ease;
   }
@@ -153,8 +154,8 @@
       padding:1rem clamp(1.25rem,4vw,3rem) 1.5rem;gap:.9rem;display:none;
     }
     .nav-links.open{display:flex;}
-    .nav-links .cta{
-      margin-top:1.1rem;width:100%;justify-content:center;padding-block:.85rem;
+    .nav-links a.cta{
+      height:auto;margin-top:1.1rem;width:100%;justify-content:center;padding-block:.85rem;
     }
     .nav-toggle{display:flex;}
   }
