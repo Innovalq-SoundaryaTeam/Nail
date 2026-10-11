@@ -337,6 +337,7 @@
   }
   .quote{font-family:var(--font-display);font-style:italic;font-size:1.4rem;line-height:1.4;max-width:34ch;}
   .quote-name{margin-top:1rem;font-family:var(--font-body);font-style:normal;font-size:.85rem;color:var(--ink-soft);}
+  .stars{color:var(--lacquer);font-size:.9rem;letter-spacing:.15em;}
 
   /* ---------- Photo frames ---------- */
   .frame{border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);}
