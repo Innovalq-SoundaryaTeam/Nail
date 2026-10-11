@@ -288,6 +288,7 @@
   :root[data-theme="dark"] .map-embed iframe{filter:saturate(.85) invert(.92) hue-rotate(180deg) contrast(.9);}
 
   form{display:flex;flex-direction:column;gap:1.1rem;}
+  #bookingForm{background:var(--shell);border:1px solid var(--line);border-radius:16px;padding:clamp(1.5rem,3vw,2rem);}
   .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;}
   @media (max-width:520px){.form-row{grid-template-columns:1fr;}}
   label{font-size:.82rem;font-weight:600;color:var(--ink-soft);display:flex;flex-direction:column;gap:.4rem;}
@@ -297,7 +298,8 @@
   }
   textarea{resize:vertical;min-height:80px;}
   input:focus,select:focus,textarea:focus{outline:none;border-color:var(--lacquer);box-shadow:0 0 0 3px color-mix(in srgb, var(--lacquer) 18%, transparent);}
-  .submit-row{display:flex;align-items:center;gap:1rem;margin-top:.4rem;}
+  .submit-row{display:flex;align-items:center;gap:1rem;margin-top:.4rem;flex-wrap:wrap;}
+  .submit-row .cta{flex:none;}
   .form-note{font-size:.78rem;color:var(--ink-soft);}
   .confirm{
     background:var(--shell);border:1px solid var(--line);border-radius:16px;padding:2rem;
